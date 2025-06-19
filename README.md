@@ -1,103 +1,126 @@
-# Node.js System Monitor API
+# SysSight - Node.js System Monitor API
 
-SysSight is a comprehensive system monitoring API built with Node.js that provides real-time insights into your computer's performance and system metrics.
+A comprehensive system monitoring API built with Node.js that provides real-time insights into your computer's performance and system metrics. SysSight offers a simple, lightweight solution for monitoring CPU, memory, network, and process information through RESTful endpoints.
 
-## Table of Contents
+## 🚀 Features
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Running the App](#running-the-app)
-- [API Documentation](#api-documentation)
+- **CPU Monitoring**: Real-time CPU metrics including model, cores, architecture, and load averages
+- **Memory Analytics**: Detailed RAM usage statistics with formatted byte values
+- **Operating System Info**: Complete OS details including platform, version, uptime, and hostname
+- **User Information**: Current user details and system user data
+- **Network Monitoring**: Network interface configurations and status
+- **Process Tracking**: Live process metrics and environment variables
+- **RESTful API**: Clean, intuitive HTTP endpoints for all system data
+- **Cross-Platform**: Works on Windows, macOS, and Linux systems
+- **Lightweight**: Minimal dependencies, built with Node.js core modules
 
-## Features
+## 🛠️ Tech Stack
 
-- **CPU Information**: Get detailed CPU metrics including model, cores, architecture, and current load
-- **Memory Usage Statistics**: Monitor RAM usage, available memory, and memory allocation
-- **Operating System Details**: Access OS information including platform, version, and uptime
-- **User Information**: Retrieve current user and system user details
-- **Network Interface Data**: Monitor network interfaces and their configurations
-- **Process Metrics**: Track process-specific metrics and environment variables
-- **Real-time Monitoring**: Live performance data updates
-- **RESTful API**: Easy-to-use HTTP endpoints for all system metrics
-
-## Tech Stack
-
-- **Node.js** - Runtime environment
+- **Node.js** - JavaScript runtime environment
 - **HTTP Module** - Built-in HTTP server functionality
-- **OS Module** - Operating system utilities
+- **OS Module** - Operating system utilities and information
 - **Process Module** - Process information and control
-- **URL Parsing** - Request routing and parameter handling
+- **URL Module** - Request routing and parameter parsing
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-system-monitor-api/
-├── src/
-│   ├── server.js          # Main server file
-│   ├── routes/
-│   │   ├── cpu.js         # CPU monitoring endpoints
-│   │   ├── memory.js      # Memory monitoring endpoints
-│   │   ├── system.js      # System information endpoints
-│   │   ├── network.js     # Network interface endpoints
-│   │   └── process.js     # Process monitoring endpoints
-│   ├── utils/
-│   │   ├── systemInfo.js  # System information utilities
-│   │   └── formatter.js   # Data formatting helpers
-│   └── middleware/
-│       └── cors.js        # CORS handling
-├── package.json
-├── package-lock.json
-└── README.md
+system-monitor/
+├── server.js                 # Main server entry point
+├── app/
+│   └── app.js               # Application configuration
+├── controllers/             # API endpoint controllers
+│   ├── cpuController.js     # CPU monitoring logic
+│   ├── memoryController.js  # Memory monitoring logic
+│   ├── networkController.js # Network interface logic
+│   ├── osController.js      # Operating system logic
+│   ├── processController.js # Process monitoring logic
+│   └── userController.js    # User information logic
+├── utils/                   # Utility functions
+│   ├── formatBytes.js       # Byte formatting utilities
+│   └── formatTime.js        # Time formatting utilities
+├── package.json             # Project dependencies and scripts
+├── .gitignore              # Git ignore rules
+└── README.md               # Project documentation
 ```
 
-## Installation
+## 📦 Installation
+
+### Prerequisites
+
+- **Node.js** v14.0.0 or higher
+- **npm** (comes with Node.js)
+
+### Setup Instructions
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/yourusername/system-monitor-api.git
-   cd system-monitor-api
+   git clone https://github.com/yourusername/system-monitor.git
+   cd system-monitor
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-3. **Verify Node.js version**
+3. **Verify installation**
    ```bash
    node --version
+   npm --version
    ```
-   *Requires Node.js v14.0.0 or higher*
 
-## Running the App
+## 🚀 Running the Application
 
 ### Development Mode
+
 ```bash
-npm run dev
+node server.js
 ```
 
 ### Production Mode
+
 ```bash
-npm start
+# Set environment variables
+export NODE_ENV=production
+export PORT=3000
+
+# Start the server
+node server.js
 ```
 
-The API server will start on `http://localhost:3000` by default.
+The API server will start on `http://localhost:3000` by default. If port 3000 is busy, it will automatically try port 3001.
 
-## API Documentation
+## 📚 API Documentation
 
 ### Base URL
+
 ```
-http://localhost:3000/api/v1
+http://localhost:3000
 ```
 
-### Endpoints
+### Available Endpoints
 
-#### CPU Information
+#### 🏠 Root Endpoint
+
+- **GET** `/`
+  - Returns API overview and available routes
+  - **Response:**
+    ```json
+    {
+      "name": "Node.js System Monitor API",
+      "description": "System Monitor description",
+      "routes": ["/cpu", "/memory", "/user", "/os", "/process", "/network"]
+    }
+    ```
+
+#### 🔥 CPU Information
+
 - **GET** `/cpu`
-  - Returns CPU model, cores, architecture, and current load
-  - Response format:
+  - Returns comprehensive CPU metrics
+  - **Response:**
     ```json
     {
       "model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
@@ -108,61 +131,71 @@ http://localhost:3000/api/v1
     }
     ```
 
-#### Memory Usage
+#### 💾 Memory Usage
+
 - **GET** `/memory`
-  - Returns memory usage statistics
-  - Response format:
+  - Returns detailed memory statistics
+  - **Response:**
     ```json
     {
       "total": 17179869184,
       "free": 8589934592,
       "used": 8589934592,
-      "usagePercentage": 50.0
+      "usagePercentage": 50.0,
+      "formatted": {
+        "total": "16 GB",
+        "free": "8 GB",
+        "used": "8 GB"
+      }
     }
     ```
 
-#### System Information
-- **GET** `/system`
+#### 💻 Operating System
+
+- **GET** `/os`
   - Returns operating system details
-  - Response format:
+  - **Response:**
     ```json
     {
-      "platform": "darwin",
-      "type": "Darwin",
-      "release": "21.6.0",
-      "hostname": "MacBook-Pro.local",
+      "platform": "win32",
+      "type": "Windows_NT",
+      "release": "10.0.19045",
+      "hostname": "DESKTOP-ABC123",
       "uptime": 3600,
-      "arch": "x64"
+      "arch": "x64",
+      "formattedUptime": "1 hour"
     }
     ```
 
-#### User Information
+#### 👤 User Information
+
 - **GET** `/user`
-  - Returns current user information
-  - Response format:
+  - Returns current user details
+  - **Response:**
     ```json
     {
       "username": "john_doe",
-      "uid": 501,
-      "gid": 20,
-      "homedir": "/Users/john_doe",
-      "shell": "/bin/zsh"
+      "uid": 1000,
+      "gid": 1000,
+      "homedir": "C:\\Users\\john_doe",
+      "shell": "C:\\WINDOWS\\System32\\cmd.exe"
     }
     ```
 
-#### Network Interfaces
+#### 🌐 Network Interfaces
+
 - **GET** `/network`
   - Returns network interface configurations
-  - Response format:
+  - **Response:**
     ```json
     {
       "interfaces": {
-        "en0": [
+        "Ethernet": [
           {
             "address": "192.168.1.100",
             "netmask": "255.255.255.0",
             "family": "IPv4",
-            "mac": "00:00:00:00:00:00",
+            "mac": "00:11:22:33:44:55",
             "internal": false
           }
         ]
@@ -170,15 +203,16 @@ http://localhost:3000/api/v1
     }
     ```
 
-#### Process Information
+#### ⚙️ Process Information
+
 - **GET** `/process`
   - Returns current process metrics
-  - Response format:
+  - **Response:**
     ```json
     {
       "pid": 12345,
       "ppid": 1234,
-      "platform": "darwin",
+      "platform": "win32",
       "version": "v18.17.0",
       "memoryUsage": {
         "rss": 25165824,
@@ -193,54 +227,105 @@ http://localhost:3000/api/v1
     }
     ```
 
-#### Environment Variables
-- **GET** `/process/env`
-  - Returns filtered environment variables (sensitive data excluded)
-  - Response format:
-    ```json
-    {
-      "NODE_ENV": "development",
-      "PATH": "/usr/local/bin:/usr/bin:/bin",
-      "HOME": "/Users/john_doe"
-    }
-    ```
-
-#### Health Check
-- **GET** `/health`
-  - Returns API health status
-  - Response format:
-    ```json
-    {
-      "status": "healthy",
-      "timestamp": "2024-01-15T10:30:00.000Z",
-      "uptime": 3600,
-      "version": "1.0.0"
-    }
-    ```
-
-### Error Responses
+### Error Handling
 
 All endpoints return consistent error responses:
+
 ```json
 {
-  "error": {
-    "code": 404,
-    "message": "Endpoint not found",
-    "timestamp": "2024-01-15T10:30:00.000Z"
-  }
+  "error": "Route Not Found"
 }
 ```
 
-### Rate Limiting
+**HTTP Status Codes:**
 
-The API implements basic rate limiting:
-- 100 requests per minute per IP address
-- 429 status code returned when limit exceeded
+- `200` - Success
+- `404` - Route not found
+- `500` - Internal server error
 
-### CORS Support
+## 🔧 Configuration
 
-Cross-Origin Resource Sharing (CORS) is enabled for all endpoints, allowing requests from any origin in development mode.
+### Environment Variables
+
+| Variable   | Default       | Description        |
+| ---------- | ------------- | ------------------ |
+| `PORT`     | `3000`        | Server port number |
+| `NODE_ENV` | `development` | Environment mode   |
+
+### Port Configuration
+
+The server automatically handles port conflicts:
+
+- If the default port (3000) is busy, it will try port 3001
+- This ensures the server always starts successfully
+
+## 🧪 Testing
+
+### Manual Testing
+
+You can test the API endpoints using:
+
+1. **cURL**
+
+   ```bash
+   curl http://localhost:3000/cpu
+   curl http://localhost:3000/memory
+   ```
+
+2. **Postman** or similar API testing tools
+
+3. **Web Browser** - Navigate to `http://localhost:3000` for the root endpoint
+
+### Example Usage
+
+```bash
+# Get CPU information
+curl -X GET http://localhost:3000/cpu
+
+# Get memory usage
+curl -X GET http://localhost:3000/memory
+
+# Get all system information
+curl -X GET http://localhost:3000/os
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow existing code style and structure
+- Add appropriate error handling
+- Include comments for complex logic
+- Test your changes thoroughly
+
+## 📝 License
+
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Bright Bediako**
+
+## 🆘 Support
+
+If you encounter any issues or have questions:
+
+1. Check the [Issues](https://github.com/yourusername/system-monitor/issues) page
+2. Create a new issue with detailed information
+3. Include your operating system and Node.js version
+
+## 🔄 Version History
+
+- **v1.0.0** - Initial release with basic system monitoring capabilities
 
 ---
 
-**Built with ❤️ Node.js**
+**Built with ❤️ using Node.js**
+
+_SysSight - Your System's Insight_
