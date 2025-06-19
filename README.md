@@ -2,6 +2,41 @@
 
 A comprehensive system monitoring API built with Node.js that provides real-time insights into your computer's performance and system metrics. SysSight offers a simple, lightweight solution for monitoring CPU, memory, network, and process information through RESTful endpoints.
 
+## 📋 Table of Contents
+
+- [🚀 Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📁 Project Structure](#-project-structure)
+- [📦 Installation](#-installation)
+  - [Prerequisites](#prerequisites)
+  - [Setup Instructions](#setup-instructions)
+- [🚀 Running the Application](#-running-the-application)
+  - [Development Mode](#development-mode)
+  - [Production Mode](#production-mode)
+- [📚 API Documentation](#-api-documentation)
+  - [Base URL](#base-url)
+  - [Available Endpoints](#available-endpoints)
+    - [🏠 Root Endpoint](#-root-endpoint)
+    - [🔥 CPU Information](#-cpu-information)
+    - [💾 Memory Usage](#-memory-usage)
+    - [💻 Operating System](#-operating-system)
+    - [👤 User Information](#-user-information)
+    - [🌐 Network Interfaces](#-network-interfaces)
+    - [⚙️ Process Information](#️-process-information)
+  - [Error Handling](#error-handling)
+- [🔧 Configuration](#-configuration)
+  - [Environment Variables](#environment-variables)
+  - [Port Configuration](#port-configuration)
+- [🧪 Testing](#-testing)
+  - [Manual Testing](#manual-testing)
+  - [Example Usage](#example-usage)
+- [🤝 Contributing](#-contributing)
+  - [Development Guidelines](#development-guidelines)
+- [📝 License](#-license)
+- [👨‍💻 Author](#️-author)
+- [🆘 Support](#-support)
+- [🔄 Version History](#-version-history)
+
 ## 🚀 Features
 
 - **CPU Monitoring**: Real-time CPU metrics including model, cores, architecture, and load averages
@@ -316,7 +351,7 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/yourusername/system-monitor/issues) page
+1. Check the [Issues](https://github.com/brightBediako/SysSight/issues) page
 2. Create a new issue with detailed information
 3. Include your operating system and Node.js version
 
