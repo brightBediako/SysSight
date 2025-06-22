@@ -93,15 +93,14 @@ const PORT = process.env.PORT || 3000;
 server
   .listen(PORT, () => {
     // console.log(`Server is up and running at http://localhost:${PORT}`);
-    console.log(`Server is up and running at https://syssight.onrender.com/`);
+    console.log(`Server is up and running on https://syssight.onrender.com/dashboard`);
   })
   .on("error", (err) => {
     if (err.code === "EADDRINUSE") {
       console.log(`Port ${PORT} is busy. Trying port ${PORT + 1}...`);
       server.listen(PORT + 1, () => {
         // console.log(`Server is up and running at http://localhost:${PORT + 1}`);
-        console.log(`Server is up and running at https://syssight.onrender.com/}`
-        );
+        console.log(`Server is up and running on https://syssight.onrender.com/dashboard}`);
       });
     } else {
       console.error("Server error:", err);

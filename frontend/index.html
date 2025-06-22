@@ -55,6 +55,31 @@
         border-radius: 5px;
         margin: 10px 0;
       }
+
+      /* Responsive styles */
+      @media (max-width: 600px) {
+        body {
+          font-size: 20px;
+          padding: 10px;
+        }
+        h1 {
+          font-size: 1.5em;
+        }
+        .button-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        button {
+          width: 100%;
+          font-size: 1.1em;
+          padding: 16px 0;
+          min-width: unset;
+        }
+        #output {
+          font-size: 1em;
+          padding: 14px;
+        }
+      }
     </style>
   </head>
   <body>
