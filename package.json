@@ -1,12 +1,19 @@
 {
   "name": "system-monitor",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test.js"
   },
-  "keywords": [],
+  "keywords": [
+    "system-monitor",
+    "nodejs",
+    "api",
+    "dashboard"
+  ],
   "author": "Bright Bediako",
   "license": "ISC",
-  "description": ""
+  "description": "A comprehensive system monitoring API built with Node.js that provides real-time insights into your computer's performance and system metrics"
 }
