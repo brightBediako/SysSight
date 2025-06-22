@@ -2,6 +2,10 @@
 
 A comprehensive system monitoring API built with Node.js that provides real-time insights into your computer's performance and system metrics. SysSight offers a simple, lightweight solution for monitoring CPU, memory, network, and process information through RESTful endpoints.
 
+## 🚀 Live Demo
+
+[syssight](https://syssight.onrender.com/)
+
 ## 📋 Table of Contents
 
 - [🚀 Features](#-features)
@@ -71,6 +75,8 @@ system-monitor/
 │   ├── osController.js      # Operating system logic
 │   ├── processController.js # Process monitoring logic
 │   └── userController.js    # User information logic
+├── routes/                  # API route definitions
+│   └── routes.js            # Main route definitions
 ├── utils/                   # Utility functions
 │   ├── formatBytes.js       # Byte formatting utilities
 │   └── formatTime.js        # Time formatting utilities
@@ -92,7 +98,7 @@ system-monitor/
 
    ```bash
    git clone https://github.com/brightBediako/SysSight.git
-   cd system-monitor
+   cd syssight
    ```
 
 2. **Install dependencies**
@@ -145,8 +151,8 @@ http://localhost:3000
   - **Response:**
     ```json
     {
-      "name": "Node.js System Monitor API",
-      "description": "System Monitor description",
+      "name": "syssight- Node.js System Monitor API",
+      "description": "A comprehensive system monitoring API built with Node.js that provides real-time insights into your computer's performance and system metrics",
       "routes": ["/cpu", "/memory", "/user", "/os", "/process", "/network"]
     }
     ```

@@ -1,5 +1,3 @@
-const http = require("http");
-
 const cpu = require("../controllers/cpuController.js");
 const memory = require("../controllers/memoryController.js");
 const user = require("../controllers/userController.js");
