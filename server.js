@@ -1,6 +1,5 @@
 const http = require("http");
 const url = require("url");
-const { get } = require("http");
 const app = require("./app/app.js");
 const cpuController = require("./controllers/cpuController");
 const memoryController = require("./controllers/memoryController");
@@ -17,9 +16,17 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.end(
       JSON.stringify({
-        name: "Node.js System Monitor API",
-        description: "System Monitor description",
-        routes: ["/cpu", "/memory", "/user", "/os", "/process", "/network"],
+        name: "SysSight - Node.js System Monitor API",
+        description:
+          "A comprehensive system monitoring API built with Node.js that provides real-time insights into your computer's performance and system metrics. SysSight offers a simple, lightweight solution for monitoring CPU, memory, network, and process information through RESTful endpoints.",
+        routes: [
+          "https://syssight.onrender.com/cpu",
+          "https://syssight.onrender.com/memory",
+          "https://syssight.onrender.com/user",
+          "https://syssight.onrender.com/os",
+          "https://syssight.onrender.com/process",
+          "https://syssight.onrender.com/network",
+        ],
       })
     );
   } else if (parsedUrl.pathname === "/cpu") {
