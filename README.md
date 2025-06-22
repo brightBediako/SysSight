@@ -4,7 +4,7 @@ A comprehensive system monitoring API built with Node.js that provides real-time
 
 ## 🚀 Live Demo
 
-[https://syssight.onrender.com/dashboardsysSight](https://syssight.onrender.com/dashboard)
+[https://syssight.onrender.com/dashboard](https://syssight.onrender.com/dashboard)
 
 ## 📋 Table of Contents
 
