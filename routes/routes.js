@@ -7,6 +7,7 @@ function rootRouteHandler(req, res) {
       description:
         "A comprehensive system monitoring API built with Node.js that provides real-time insights into your computer's performance and system metrics.",
       routes: [
+        "https://syssight.onrender.com/dashboard",
         "https://syssight.onrender.com/cpu",
         "https://syssight.onrender.com/memory",
         "https://syssight.onrender.com/user",
